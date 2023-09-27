@@ -5,7 +5,7 @@ int main(int argc, char** argv)
 {
   rclcpp::init(argc, argv);
 
-  auto  acquisition = std::make_shared<rosneuro::Acquisition>();
+  auto  acquisition = std::make_shared<ros2neuro::Acquisition>();
 
   if(acquisition->run() == false)
     RCLCPP_ERROR(acquisition->get_logger(), "Acquisition interrupted while running");

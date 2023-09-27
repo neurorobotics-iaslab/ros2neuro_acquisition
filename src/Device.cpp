@@ -3,7 +3,7 @@
 
 #include "ros2neuro_acquisition/Device.hpp"
 
-namespace rosneuro {
+namespace ros2neuro {
 
 Device::Device(void) {
     this->name_  = "undefined";

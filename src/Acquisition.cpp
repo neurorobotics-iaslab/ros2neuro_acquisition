@@ -3,13 +3,13 @@
 
 #include "ros2neuro_acquisition/Acquisition.hpp"
 
-namespace rosneuro {
+namespace ros2neuro {
 
 Acquisition::Acquisition(void) : Node("acquisition") { 
     this->topic_     = "/neurodata"; 
     this->autostart_ = false;
     this->state_     = Acquisition::IS_IDLE;
-    this->loader_.reset(new pluginlib::ClassLoader<Device>("ros2neuro_acquisition", "rosneuro::Device"));
+    this->loader_.reset(new pluginlib::ClassLoader<Device>("ros2neuro_acquisition", "ros2neuro::Device"));
     this->neuroseq_  = 0;
 
     // declare all ros parameters
@@ -46,6 +46,7 @@ bool Acquisition::configure(void) {
     // Dynamically load the plugin
     try {
         this->dev_ = this->loader_->createSharedInstance(this->plugin_);
+        //this->dev_ = this->loader_->createSharedInstance(this->plugin_, &this->frame_);
     } catch (pluginlib::PluginlibException& ex) {
         RCLCPP_ERROR(this->get_logger(), "'%s' plugin failed to load: %s", this->plugin_.c_str(), ex.what());
     }

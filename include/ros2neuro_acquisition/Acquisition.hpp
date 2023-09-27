@@ -12,7 +12,7 @@
 
 
 
-namespace rosneuro {
+namespace ros2neuro {
 
 /*! \brief      Acquisition class
  * 

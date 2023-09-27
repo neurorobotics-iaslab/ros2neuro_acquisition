@@ -14,13 +14,13 @@ int main(int argc, char** argv)
 
   std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("test_plugin");
 
-  pluginlib::ClassLoader<rosneuro::Device> poly_loader("ros2neuro_acquisition", "rosneuro::Device");
+  pluginlib::ClassLoader<ros2neuro::Device> poly_loader("ros2neuro_acquisition", "ros2neuro::Device");
 
   try
   {
     
-    std::shared_ptr<rosneuro::Device> device = poly_loader.createSharedInstance("rosneuro::EGDDevice");
-    rosneuro::NeuroFrame    frame;
+    std::shared_ptr<ros2neuro::Device> device = poly_loader.createSharedInstance("ros2neuro::EGDDevice");
+    ros2neuro::NeuroFrame    frame;
     device->bind_node(node);
     device->who();
     device->configure(&frame, 0.0625);

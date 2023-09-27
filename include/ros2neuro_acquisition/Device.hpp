@@ -8,7 +8,7 @@
 
 #include "ros2neuro_data/NeuroData.hpp"
 
-namespace rosneuro {
+namespace ros2neuro {
 
 /*! \brief      Structure containing the main device information
  */
